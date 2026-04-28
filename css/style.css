@@ -1,0 +1,124 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Center containers */
+form {
+    background: white;
+    padding: 20px;
+    width: 300px;
+    margin: 80px auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+h2{
+    align-items: center;
+    text-decoration: solid;
+
+
+}
+h4{
+    align-items: center;
+    margin-top: 30px;
+
+
+}
+
+
+
+.top_bar{
+     text-align: center;
+
+
+}
+.form{
+     background: white;
+    padding: 20px;
+    width: 400px;
+    margin: 80px auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    
+}
+
+.main_body{
+    padding: 100px;
+    width: 700px;
+    margin: 80px auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    background-color: #ccc;
+
+    
+
+
+   
+}
+table{    
+    padding: 100px;
+    width: 700px;
+    margin: 80px auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+
+
+
+/* Inputs */
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Buttons */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #2d6cdf;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1b4fb5;
+}
+
+/* Links */
+a {
+    color: #2d6cdf;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Headings */
+h2 {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Dashboard styling */
+ul {
+    width: 60%;
+    margin: 20px auto;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+    background: white;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
