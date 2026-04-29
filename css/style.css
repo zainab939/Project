@@ -1,11 +1,11 @@
-body {
+/*body {
     font-family: Arial, sans-serif;
     background-color: #f4f6f9;
     margin: 0;
     padding: 0;
 }
 
-/* Center containers */
+/* Center containers *
 form {
     background: white;
     padding: 20px;
@@ -26,6 +26,7 @@ h4{
 
 
 }
+
 
 
 
@@ -68,7 +69,7 @@ table{
 
 
 
-/* Inputs */
+/* Inputs *
 input {
     width: 100%;
     padding: 10px;
@@ -77,7 +78,7 @@ input {
     border-radius: 5px;
 }
 
-/* Buttons */
+/* Buttons *
 button {
     width: 100%;
     padding: 10px;
@@ -92,7 +93,7 @@ button:hover {
     background-color: #1b4fb5;
 }
 
-/* Links */
+/* Links *
 a {
     color: #2d6cdf;
     text-decoration: none;
@@ -102,13 +103,13 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Headings */
+/* Headings *
 h2 {
     text-align: center;
     margin-top: 30px;
 }
 
-/* Dashboard styling */
+/* Dashboard styling *
 ul {
     width: 60%;
     margin: 20px auto;
@@ -121,4 +122,11 @@ li {
     margin: 10px 0;
     padding: 10px;
     border-radius: 5px;
-}
+}*/
+
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+background-color: white
+;}
