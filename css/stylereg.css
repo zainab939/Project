@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 *{
     padding: 0;
@@ -18,12 +17,12 @@
 
     /* border */
     --border-radius: 8px;
-    --border-radius-lg: 16px;
-    --border-radius-sm: 24px;
+    --border-radius-sm: 16px;
+    --border-radius-lg: 24px;
     /* spacing */
     --spacing: 8px;
-    --spacing-lg: 16px;
-    --spacing-sm: 24px;
+    --spacing-sm: 16px;
+    --spacing-lg: 24px;
     /* typography */
     --font-family-secondary: 'Arial', sans-serif;
     --font-family-primary: 'Arial', sans-serif;
@@ -51,8 +50,12 @@ h1,h2,h3,h4,h5,h6{
 
 p{
     font-family: var(--font-family-secondary);
-    font-size: var(--font-size);
+    font-size: var(--font-size-normal);
     color: var(--subtext-color);
+}
+
+html, body {
+    min-height: 100%;
 }
 
 body{
@@ -63,9 +66,8 @@ body{
 
 .Auth-container {
     min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    place-items: center;
     padding: 32px 16px;
 }
 
@@ -83,9 +85,9 @@ body{
     color: var(--text-color);
 }
 
-.Register-form {
-    width: 100%;
-    max-width: 560px;
+.Register-form,
+.login-card {
+    width: 500px;
     background: #ffffff;
     border-radius: 28px;
     padding: 32px;
@@ -93,11 +95,68 @@ body{
     border: 1px solid rgba(15, 23, 42, 0.08);
 }
 
-.form-message {
-    margin-bottom: 16px;
-    min-height: 24px;
+.card-header {
+    margin-bottom: 24px;
+}
+
+.card-header h1 {
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.login-subheading {
+    margin: 0;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.form-row-between {
+    justify-content: space-between;
+}
+
+.checkbox-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     font-size: 0.95rem;
-    color: #d14343;
+    color: #475569;
+}
+
+.forgot-link {
+    color: var(--primary-color);
+    font-size: 0.95rem;
+    text-decoration: none;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+}
+
+.signIn-redirect {
+    margin-top: 22px;
+    text-align: center;
+}
+
+.signIn-redirect a {
+    color: var(--secondary-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.signIn-redirect a:hover {
+    text-decoration: underline;
+}
+
+.form {
+    width: 100%;
 }
 
 .input-group {
@@ -112,8 +171,7 @@ body{
     color: #374151;
 }
 
-.input-group input,
-.input-group select {
+.form input {
     width: 100%;
     padding: 12px 14px;
     border: 1px solid #cbd5e1;
@@ -124,14 +182,81 @@ body{
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.input-group input:focus,
-.input-group select:focus {
+.form input:focus {
     outline: none;
     border-color: var(--primary-color);
     box-shadow: 0 0 0 5px rgba(45, 108, 223, 0.12);
 }
 
-.terms-group {
+.register-btn {
+    width: 100%;
+    padding: 14px 18px;
+    border: none;
+    border-radius: 14px;
+    background: var(--primary-color);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.register-btn:hover {
+    background: var(--secondary-color);
+    transform: translateY(-1px);
+}
+
+.form-row label {
+    margin: 0;
+}
+
+.form-row input {
+    margin: 0;
+}
+
+.form-row a {
+    white-space: nowrap;
+}
+
+.form-message {
+    margin-bottom: 16px;
+    min-height: 24px;
+    font-size: 0.95rem;
+    color: #d14343;
+}
+
+.input-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.input-form label {
+    font-size: 0.95rem;
+    color: #374151;
+}
+
+.input-form input,
+.input-form select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 14px;
+    background: #f8fafc;
+    font-size: 1rem;
+    color: #111827;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-form input:focus,
+.input-form select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 5px rgba(45, 108, 223, 0.12);
+}
+
+.terms-form {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -140,13 +265,13 @@ body{
     color: #475569;
 }
 
-.terms-group input {
+.terms-form input {
     width: auto;
     min-width: 18px;
     height: 18px;
 }
 
-.terms-group label {
+.terms-form label {
     margin: 0;
 }
 
@@ -202,4 +327,4 @@ body{
     }
 }
 
-        
+
