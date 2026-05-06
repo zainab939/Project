@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forgot-password</title>
+    <link rel="stylesheet" href="../css/stylelog.css">
+</head>
+<body>
+    <main class="Auth-container">
+        <selection class="form login-card">
+            <div class="card-header">
+                <h1>Reset-password</h1>
+                <p>Enter your email to receive OTP</p>
+            </div>
+            <form action="/reset-password" method="post">
+            <div class="input-form">
+            <label for="email">Email Address</label>
+            <input type="email" name="email" placeholder required>
+            </div>
+            <button type="submit" class="register-btn">Send-OTP</button>
+            </div>
+            <div class="input-form">
+                <label for="New-password">New-Password</label>
+                <input type="new-password" name="new-password" placeholder required>
+            </div>
+            <div class="input-form">
+                <label for="confirm new-password">confirm-password</label>
+                <input type="confirm new-password" name="confirm-password" placeholder required>
+            </div>
+            <button type="submit" class="register-btn">Update</button>
+            </form>
+            <p><a href="login.html">Back to login</a></p>
+        </selection>
+    </main>
+</body>
+</html>
