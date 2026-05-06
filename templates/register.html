@@ -1,29 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Register</title>
-    
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="/Project/css/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register-Form</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="../css/stylereg.css">
 </head>
 <body>
+    <div class="Auth-container">
+        <div class="top_bar">
+            <h2>Create an account</h2>
+        </div>
 
-<h2>Create an Account</h2>
-
-
-
-<form action="login.html">
-
-    <label for="name"> Name:</label><br>
-    <input type="text" name="name" placeholder="Enter your full name" required><br>
-     <label for="email"> Email:</label><br>
-    <input type="email" name="email" placeholder=" Enter your Email" required><br>
-     <label for="password"> Password:</label><br>
-    <input type="password" name="password" placeholder="Enter your Password" required><br>
-    
-    <button type="submit">Register</button>
-    
-</form>
-
-</body>   
+        <div class="Register-form">
+            <div id="formmessage" class="form-message"></div>
+            <form id="registration" action="#" method="post" novalidate>
+                <div class="input-form">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your full name" required>
+                </div>
+                <div class="input-form">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                </div>
+                <div class="input-form">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Choose a password" required>
+                </div>
+                <div class="input-form">
+                    <label for="confirm_password">Confirm Password</label>
+                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Repeat password" required>
+                </div>
+                <div class="input-form">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" required>
+                </div>
+                <div class="input-form">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+                <div class="input-form">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Select gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="input-form">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" name="address" placeholder="Street address" required>
+                </div>
+                <div class="input-form">
+                    <label for="city">City</label>
+                    <input type="text" id="city" name="city" placeholder="City" required>
+                </div>
+                <div class="input-form">
+                    <label for="state">State</label>
+                    <input type="text" id="state" name="state" placeholder="State" required>
+                </div>
+                <div class="input-form">
+                    <label for="zip">Zip Code</label>
+                    <input type="text" id="zip" name="zip" placeholder="Zip code" required>
+                </div>
+                <div class="input-form">
+                    <label for="country">Country</label>
+                    <input type="text" id="country" name="country" placeholder="Country" required>
+                </div>
+                <div class="terms-form">
+                    <input type="checkbox" id="termscheckbox" name="termscheckbox" required>
+                    <label for="termscheckbox">
+                        I agree to the <a href="#" class="terms-link">Terms of service</a>
+                    </label>
+                </div>
+                <button type="submit" class="register-btn" id="submitBtn">Register Account</button>
+                <div class="signIn-redirect">
+                    <a href="login.html">Already have an account? Sign in</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
 </html>
+  
