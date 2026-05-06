@@ -56,7 +56,6 @@ p{
 
 body{
     background-color: var(--background-color);
-    background-color:aqua;
     font-family: 'DM Sans', Arial, sans-serif;
     color: var(--text-color);
 }
