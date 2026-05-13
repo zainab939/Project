@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COURSETRACK</title>
+    <!-- Development version -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <!-- Logo -->
+            <div class="sidebar-logo">
+                <div class="logo-icon"><img src="../../assets/nncat.webp" alt="Logo"></div>
+                <span class="logo-text">CourseTrack</span>
+            </div>
+
+            <!-- Main Navigation -->
+            <nav class="sidebar-nav">
+                <ul class="nav-menu">
+                    <li class="nav-item active">
+                        <a href="#" class="nav-link">
+                            <i data-lucide="book-open" class="nav-icon"></i>
+                            <span class="nav-text">All Courses</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i data-lucide="calendar" class="nav-icon"></i>
+                            <span class="nav-text">Upcoming</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i data-lucide="hourglass" class="nav-icon"></i>
+                            <span class="nav-text">Ongoing</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i data-lucide="check-circle" class="nav-icon"></i>
+                            <span class="nav-text">Completed</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Status Alerts Section -->
+            <div class="status-alerts">
+                <h3 class="alerts-title">STATUS ALERTS</h3>
+                <div class="alerts-list">
+                    <div class="alert-item">
+                        <span class="alert-dot"></span>
+                        <span class="alert-text">COURSE START TODAY: ADVANCED AIRCRAFT SYSTEMS</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Header Section -->
+            <header class="workspace-header">
+                <div class="header-content">
+                    <h1 class="header-title">Dashboard</h1>
+                </div>
+                 <div class="search-box">
+                    <input type="text" class="search-input" id="search" placeholder="Search courses...">
+                    <i data-lucide="search" class="search-icon"></i>
+                </div>
+                <div class="header-actions">
+                    <button class="header-btn settings-btn" title="Settings">
+                        <i data-lucide="settings" class="header-icon"></i>
+                    </button>
+                    <button class="header-btn profile-btn" title="Profile">
+                        <img src="../../assets/me.jpg" alt="Profile" class="profile-photo">
+                    </button>
+                </div>
+            </header>
+            
+        </section>
+        
+        <!-- Filter and Search Section -->
+        <section class="filter-section">
+            <div class="filter-buttons">
+                <button class="filter-btn active">ALL</button>
+                <button class="filter-btn">UPCOMING</button>
+                <button class="filter-btn">ONGOING</button>
+                <button class="filter-btn">COMPLETED</button>
+                <button class="btn-new-course">
+                    <i data-lucide="plus" class="btn-icon"></i>
+                    <span class="btn-text">New Course</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="stats-section">
+                <div class="stat-card">
+                    <p class="stat-label">TOTAL COURSES</p>
+                    <p class="stat-number">03</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-label">ONGOING NOW</p>
+                    <p class="stat-number">02</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-label">COMPLETED</p>
+                    <p class="stat-number">00</p>
+                </div>
+            </section>
+
+
+            <!-- Courses List -->
+            <section class="courses-section">
+                <div class="course-card">
+                    <div class="course-header">
+                        <h3 class="course-tit   le">Advanced Aircraft Systems</h3>
+                        <span class="course-badge upcoming">Upcoming</span>
+                    </div>
+                    <div class="course-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Start Date:</span>
+                            <span class="detail-value">Jun 5, 2026</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Duration:</span>
+                            <span class="detail-value">4 weeks</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Participants:</span>
+                            <span class="detail-value">45 students</span>
+                        </div>
+                    </div>
+                    <div class="course-footer">
+                        <span class="course-position">1 of 3</span>
+                        <div class="course-actions">
+                            <button class="action-btn edit">Edit</button>
+                            <button class="action-btn delete">Delete</button>
+                            <button class="action-btn report">Report</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-header">
+                        <h3 class="course-title">Instrument Flight Rules</h3>
+                        <span class="course-badge ongoing">Ongoing</span>
+                    </div>
+                    <div class="course-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Start Date:</span>
+                            <span class="detail-value">Apr 1, 2026</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Duration:</span>
+                            <span class="detail-value">6 weeks</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Participants:</span>
+                            <span class="detail-value">32 students</span>
+                        </div>
+                    </div>
+                    <div class="course-footer">
+                        <span class="course-position">2 of 3</span>
+                        <div class="course-actions">
+                            <button class="action-btn edit">Edit</button>
+                            <button class="action-btn delete">Delete</button>
+                            <button class="action-btn report">Report</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-header">
+                        <h3 class="course-title">Aviation Meteorology</h3>
+                        <span class="course-badge completed">Completed</span>
+                    </div>
+                    <div class="course-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Start Date:</span>
+                            <span class="detail-value">Feb 10, 2026</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Duration:</span>
+                            <span class="detail-value">4 weeks</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Participants:</span>
+                            <span class="detail-value">28 students</span>
+                        </div>
+                    </div>
+                    <div class="course-footer">
+                        <span class="course-position">3 of 3</span>
+                        <div class="course-actions">
+                            <button class="action-btn edit">Edit</button>
+                            <button class="action-btn delete">Delete</button>
+                            <button class="action-btn report">Report</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Add Course Modal -->
+    <div id="addCourseModal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Create Course</h2>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <p class="modal-subtitle">Fill in the details for your event.</p>
+            
+            <form id="addCourseForm" class="modal-form">
+                <div class="form-group">
+                    <label class="form-label">COURSE NAME</label>
+                    <input type="text" id="courseName" class="form-input" placeholder="e.g. Advanced Aircraft Systems" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">START DATE</label>
+                        <input type="date" id="startDate" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">DURATION (DAYS)</label>
+                        <input type="number" id="duration" class="form-input" placeholder="1" min="1" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">MAX PARTICIPANTS</label>
+                    <input type="number" id="participants" class="form-input" placeholder="1" min="1" required>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn-create">
+                        <span>Create Course</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+        </main>
+
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>    
