@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+/* style */
+:root{
+    --primary-color: #2d6cdf;
+    --secondary-color: #1b4fb5;
+    --background-color: #f5f5f5;
+    --text-color: #212121;
+    --subtext-color: #4e4e4e;
+
+    /* border */
+    --border-radius: 8px;
+    --border-radius-sm: 16px;
+    --border-radius-lg: 24px;
+    /* spacing */
+    --spacing: 8px;
+    --spacing-sm: 16px;
+    --spacing-lg: 24px;
+    /* typography */
+    --font-family-secondary: 'Arial', sans-serif;
+    --font-family-primary: 'Arial', sans-serif;
+    --font-size-normal: 16px;
+    --font-size-sm: 14px;
+    --font-size-lg: 18px;
+    --font-size-heading1: 24px;
+    --font-size-heading2: 20px;
+    --font-size-heading3: 18px;
+
+    --font-weight: normal;
+
+
+}
+
+
+
+
+/* TYPOGRAPHY */
+
+h1,h2,h3,h4,h5,h6{
+    font-family: var(--font-family-primary);
+    color: var(--text-color);
+}
+
+p{
+    font-family: var(--font-family-secondary);
+    font-size: var(--font-size-normal);
+    color: var(--subtext-color);
+}
+
+html, body {
+    min-height: 100%;
+}
+
+body{
+    background-color: var(--background-color);
+    background-color: #2d6cdf;
+    font-family: 'DM Sans', Arial, sans-serif;
+    color: var(--text-color);
+    min-height: 100vh;
+    display: block;
+    
+}
+
+.Auth-container {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 32px 16px;
+}
+
+.Register-form {
+    width: min(100%);
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 36px 32px;
+    box-shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.card-header {
+    margin-bottom: 24px;
+}
+
+.card-header h1,
+.card-header h2 {
+    margin: 0 0 10px;
+    font-size: 2rem;
+    letter-spacing: -0.03em;
+}
+
+.login-subheading {
+    margin: 0;
+    color: #64748b;
+    line-height: 1.6;
+    font-size: 0.98rem;
+}
+
+.form-message {
+    margin-bottom: 20px;
+    min-height: 22px;
+    font-size: 0.95rem;
+    color: #d14343;
+}
+
+.form {
+    width: 50%;
+}
+
+.input-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.input-form label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+.input-form input,
+.input-form select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #d2d7df;
+    border-radius: 14px;
+    background: #fafbfc;
+    font-size: 1rem;
+    color: #111827;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.input-form input:focus,
+.input-form select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 5px rgba(45, 108, 223, 0.12);
+}
+
+.input-form input::placeholder {
+    color: #8b98a8;
+}
+
+.register-btn {
+    width: 100%;
+    padding: 14px 18px;
+    border: none;
+    border-radius: 14px;
+    background: var(--primary-color);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    margin-top: 6px;
+}
+
+.register-btn:hover {
+    background: var(--secondary-color);
+    transform: translateY(-1px);
+}
+
+.signIn-redirect {
+    margin-top: 20px;
+    text-align: center;
+    color: #475569;
+    font-size: 0.95rem;
+}
+
+.signIn-redirect a {
+    color: var(--secondary-color);
+    font-weight: 420;
+    text-decoration: none;
+}
+
+.signIn-redirect a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .Register-form {
+        padding: 24px;
+    }
+
+    .card-header h1,
+    .card-header h2 {
+        font-size: 1.75rem;
+    }
+
+    .input-form input,
+    .input-form select {
+        padding: 12px 14px;
+    }
+
+    .register-btn {
+        padding: 13px 16px;
+    }
+}
+
+

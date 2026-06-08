@@ -1,6 +1,225 @@
-body{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: aqua;
+
+
+*{
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body{
+    background-color: #111827;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+}
+
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.profile-card{
+
+    width: 450px;
+
+    background-color: white;
+
+    border-radius: 50px;
+
+    padding: 25px;
+
+    text-align: center;
+    
+    box shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.profile-image{
+
+    width: 150px;
+    height: 150px;
+
+    background-color: gray;
+
+    border-radius: 50%;
+
+    margin: 0 auto;
+
+    margin-bottom: 20px;
+    
+    margin-top: 20px;
+}
+
+
+
+.profile-card h2{
+
+    margin-bottom: 5px;
+
+    color: #111827;
+}
+
+
+
+.role{
+
+    color: #6b7280;
+
+    margin-bottom: 25px;
+}
+
+
+.info{
+
+    text-align: left;
+
+    margin-bottom: 25px;
+}
+
+
+.info p{
+
+    margin-bottom: 15px;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    padding-bottom: 10px;
+
+    color: #374151;
+}
+
+
+.info span{
+
+    font-weight: bold;
+
+    color: black;
+}
+
+
+
+.report-section{
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+}
+
+
+.box{
+
+    width: 90px;
+
+    background-color: #f3f4f6;
+
     padding: 15px;
+
+    border-radius: 10px;
+}
+
+
+
+.box h3{
+
+    margin-bottom: 5px;
+
+    color: #111827;
+}
+
+
+
+.box p{
+
+    font-size: 14px;
+
+    color: #6b7280;
+}
+
+
+
+.activity{
+
+    text-align: left;
+
+    margin-bottom: 25px;
+}
+
+
+
+.activity h3{
+
+    margin-bottom: 15px;
+
+    color: #111827;
+}
+
+
+
+.activity ul{
+
+    padding-left: 20px;
+}
+
+
+
+.activity li{
+
+    margin-bottom: 10px;
+
+    color: #374151;
+}
+
+
+
+.buttons{
+
+    display: flex;
+
+    justify-content: space-between;
+}
+
+
+button{
+
+    width: 48%;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+}
+
+
+
+.edit-btn{
+
+    background-color: #111827;
+
+    color: white;
+}
+
+
+.logout-btn{
+
+    background-color: #e5e7eb;
+
+    color: black;
 }

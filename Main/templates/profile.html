@@ -3,38 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Details</title>
+    <title>Profile Card</title>
 
-     <link rel="stylesheet" href="/Project/css/main.css">
-    <link rel="stylesheet" href="/css/styleProfile.css">
-
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/styleProfile.css">
 </head>
 
 <body>
-    <header class="topBar">
-        <h1>Student details</h1>
-        <p>Dashboard / students / student details</p>
-    </header>
-    <div class="card">
-        <div class="cover"></div>
-        <div class="profile_section">
-            <img src="img.jpg" alt="Profile photo">
+
+    <div class="container">
+
+        
+        <div class="profile-card">
+
+            
+            <div class="profile-image"></div>
+
+            
+            <h2>Zainab</h2>
+
+            
+            <p class="role">
+                Admin
+            </p>
+
+            
+            <div class="info">
+
+                <p>
+                    <span>Email:</span>
+                    zainab@gmail.com
+                </p>
+
+                <p>
+                    <span>Phone:</span>
+                    +234 xxx xxx xxxx
+                </p>
+
+                <p>
+                    <span>Role:</span>
+                    Administrator
+                </p>
+
+                <p>
+                    <span>Status:</span>
+                    Active
+                </p>
+
+            </div>
+
+        
+            <div class="report-section">
+
+                <div class="box">
+                    <h3>12</h3>
+                    <p>Reports</p>
+                </div>
+
+                <div class="box">
+                    <h3>8</h3>
+                    <p>Tasks</p>
+                </div>
+
+                <div class="box">
+                    <h3>5</h3>
+                    <p>Projects</p>
+                </div>
+
+            </div>
+
+            
+            <div class="activity">
+
+                <h3>Recent Activity</h3>
+
+                <ul>
+                    <li>Uploaded a report</li>
+                    <li>Updated profile</li>
+                    <li>Completed task</li>
+                </ul>
+
+            </div>
+
+            
+            <div class="buttons">
+
+                <button class="edit-btn">
+                    Edit
+                </button>
+
+                <button class="logout-btn">
+                    Logout
+                </button>
+
+            </div>
+
         </div>
-        <div class="name_tags">
-            <h2 id="StudentName">John Doe</h2>
-            <p class="tag">Social Media Strategies</p>
-        </div>
-        <div class="info">
-            <p><b>Email:</b> john.doe@example.com</p>
-            <p><b>Phone:</b> +1 234 567 890</p>
-            <p><b>Address:</b> 123 Main Street, City</p>
-        </div>
-        <div class="button">
-            <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="#" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
-            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-            <button>Edit</button>
-        </div>
+
     </div>
+
 </body>
 </html>
