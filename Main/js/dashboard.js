@@ -5,9 +5,15 @@
 // DOM Elements
 const filterButtons = document.querySelectorAll('.filter-btn');
 const searchInput = document.querySelector('.search-input');
-const courseCards = document.querySelectorAll('.course-card');
 const btnNewCourse = document.querySelector('.btn-new-course');
 const navItems = document.querySelectorAll('.nav-item');
+const headerActions = document.querySelectorAll('.header-action');
+const currentSemester = Number(document.getElementById("studentCount").textContent);
+const currentOngoing = Number(document.getElementById("ongoingCount").textContent);
+const currentCompleted = Number(document.getElementById("completedCount").textContent);
+const previousSemester = 95;
+const previousOngoing = 1;
+const previousCompleted = 0;
 
 // Modal Elements
 const addCourseModal = document.getElementById('addCourseModal');
@@ -18,6 +24,50 @@ const addCourseForm = document.getElementById('addCourseForm');
 // State
 let currentFilter = 'ALL';
 let currentSearch = '';
+
+/* ============================================================
+   HEADER ACTION MENUS
+   ============================================================ */
+
+function closeHeaderMenus() {
+    headerActions.forEach(action => {
+        action.classList.remove('active');
+        const button = action.querySelector('.header-btn');
+        if (button) {
+            button.setAttribute('aria-expanded', 'false');
+        }
+    });
+}
+
+headerActions.forEach(action => {
+    const button = action.querySelector('.header-btn');
+    const menuItems = action.querySelectorAll('.header-menu-item');
+
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const isOpen = action.classList.contains('active');
+        closeHeaderMenus();
+
+        if (!isOpen) {
+            action.classList.add('active');
+            button.setAttribute('aria-expanded', 'true');
+        }
+    });
+
+    menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+            closeHeaderMenus();
+        });
+    });
+});
+
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.header-action')) {
+        closeHeaderMenus();
+    }
+});
 
 /* ============================================================
    MODAL FUNCTIONS
@@ -57,6 +107,10 @@ addCourseModal.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && addCourseModal.classList.contains('active')) {
         closeModal();
+    }
+
+    if (e.key === 'Escape') {
+        closeHeaderMenus();
     }
 });
 
@@ -111,12 +165,14 @@ filterButtons.forEach(button => {
 });
 
 function filterCourses() {
-    courseCards.forEach(card => {
-        const badge = card.querySelector('.course-badge');
-        const badgeText = badge.textContent.trim().toUpperCase();
-        const title = card.querySelector('.course-title').textContent.toLowerCase();
+    const courseRows = document.querySelectorAll('.course-row');
 
-        let showCard = true;
+    courseRows.forEach(row => {
+        const badge = row.querySelector('.course-badge');
+        const badgeText = badge.textContent.trim().toUpperCase();
+        const title = row.querySelector('.course-title').textContent.toLowerCase();
+
+        let showRow = true;
 
         // Check status filter
         if (currentFilter !== 'ALL') {
@@ -125,16 +181,16 @@ function filterCourses() {
                 'ONGOING': badgeText === 'ONGOING',
                 'COMPLETED': badgeText === 'COMPLETED'
             };
-            showCard = filterMap[currentFilter] || false;
+            showRow = filterMap[currentFilter] || false;
         }
 
         // Check search filter
         if (currentSearch) {
-            showCard = showCard && title.includes(currentSearch.toLowerCase());
+            showRow = showRow && title.includes(currentSearch.toLowerCase());
         }
 
-        // Show or hide card
-        card.style.display = showCard ? 'block' : 'none';
+        // Show or hide row
+        row.style.display = showRow ? '' : 'none';
     });
 
     // Show "no results" message if needed
@@ -155,7 +211,8 @@ searchInput.addEventListener('input', (e) => {
    ============================================================ */
 
 function updateNoResultsMessage() {
-    const visibleCards = Array.from(courseCards).filter(card => card.style.display !== 'none');
+    const courseRows = document.querySelectorAll('.course-row');
+    const visibleRows = Array.from(courseRows).filter(row => row.style.display !== 'none');
 
     // Remove existing no-results message
     const existingMessage = document.querySelector('.no-results-message');
@@ -164,16 +221,14 @@ function updateNoResultsMessage() {
     }
 
     // Add no-results message if no courses visible
-    if (visibleCards.length === 0) {
-        const coursesSection = document.querySelector('.courses-section');
-        const noResultsDiv = document.createElement('div');
-        noResultsDiv.className = 'no-results-message';
-        noResultsDiv.innerHTML = `
-            <p style="text-align: center; color: var(--color-text-secondary); padding: var(--spacing-2xl); font-size: var(--font-size-base);">
-                No courses found. Try adjusting your search or filters.
-            </p>
+    if (visibleRows.length === 0) {
+        const tableBody = document.querySelector('.courses-table tbody');
+        const noResultsRow = document.createElement('tr');
+        noResultsRow.className = 'no-results-message';
+        noResultsRow.innerHTML = `
+            <td colspan="7">No courses found. Try adjusting your search or filters.</td>
         `;
-        coursesSection.appendChild(noResultsDiv);
+        tableBody.appendChild(noResultsRow);
     }
 }
 
@@ -185,45 +240,45 @@ document.querySelectorAll('.action-btn').forEach(button => {
     button.addEventListener('click', (e) => {
         e.preventDefault();
 
-        const card = button.closest('.course-card');
-        const courseTitle = card.querySelector('.course-title').textContent;
+        const row = button.closest('.course-row');
+        const courseTitle = row.querySelector('.course-title').textContent;
         const action = button.classList[1]; // edit, delete, or report
 
         switch(action) {
             case 'edit':
-                handleEditCourse(card);
+                handleEditCourse(row);
                 break;
             case 'delete':
-                handleDeleteCourse(card, courseTitle);
+                handleDeleteCourse(row, courseTitle);
                 break;
             case 'report':
-                handleGenerateReport(card);
+                handleGenerateReport(row);
                 break;
         }
     });
 });
 
-function handleEditCourse(card) {
-    const courseTitle = card.querySelector('.course-title').textContent;
+function handleEditCourse(row) {
+    const courseTitle = row.querySelector('.course-title').textContent;
     console.log(`Editing course: ${courseTitle}`);
     // Navigate to edit-course page with course data
     // window.location.href = `edit-course.html?course=${encodeURIComponent(courseTitle)}`;
     alert(`Edit functionality for "${courseTitle}" - Coming soon!`);
 }
 
-function handleDeleteCourse(card, courseTitle) {
+function handleDeleteCourse(row, courseTitle) {
     if (confirm(`Are you sure you want to delete "${courseTitle}"?`)) {
-        card.style.animation = 'fadeOut 0.3s ease-in-out';
+        row.style.animation = 'fadeOut 0.3s ease-in-out';
         setTimeout(() => {
-            card.remove();
+            row.remove();
             filterCourses();
             console.log(`Deleted course: ${courseTitle}`);
         }, 300);
     }
 }
 
-function handleGenerateReport(card) {
-    const courseTitle = card.querySelector('.course-title').textContent;
+function handleGenerateReport(row) {
+    const courseTitle = row.querySelector('.course-title').textContent;
     console.log(`Generating report for: ${courseTitle}`);
     alert(`Report generation for "${courseTitle}" - Coming soon!`);
 }
@@ -274,6 +329,18 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Dashboard loaded successfully');
     // Initialize with default filter
     filterCourses();
+    drawChart('semesterChart', previousSemester, currentSemester, {
+        label: 'Total Courses',
+        backgroundColor: ['#6c5ce7', '#00cec9']
+    });
+    drawChart('ongoingChart', previousOngoing, currentOngoing, {
+        label: 'Ongoing Courses',
+        backgroundColor: ['#0984e3', '#00b894']
+    });
+    drawChart('completedChart', previousCompleted, currentCompleted, {
+        label: 'Completed Courses',
+        backgroundColor: ['#636e72', '#fdcb6e']
+    });
 });
 
 /* ============================================================
@@ -294,9 +361,48 @@ style.innerHTML = `
     }
 
     .no-results-message {
-        grid-column: 1 / -1;
         text-align: center;
+    }
+
+    .no-results-message td {
         padding: var(--spacing-2xl);
+        color: var(--color-text-secondary);
+        font-size: var(--font-size-base);
     }
 `;
 document.head.appendChild(style);
+
+/* ============================================================
+   chart.js initialization for semester chart
+   ============================================================ */
+const drawChart = (chartId, previous, current, options = {}) => {
+  const chartCanvas = document.getElementById(chartId);
+
+  if (!chartCanvas || typeof Chart === 'undefined') {
+    return;
+  }
+
+  const ctx = chartCanvas.getContext("2d");
+
+  return new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Previous Semester', 'Current Semester'],
+      datasets: [{
+        label: options.label || 'Registrations',
+        data: [previous, current],
+        backgroundColor: options.backgroundColor || ['#6c5ce7', '#00cec9']
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false }
+      },
+      scales: {
+        y: { beginAtZero: true }
+      }
+    }
+  });
+};

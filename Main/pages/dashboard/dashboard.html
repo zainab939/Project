@@ -1,13 +1,10 @@
 <!DOCTYPE html>
-<html lang=xxxx "en">
+<html lang="en">
 <head>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COURSETRACK</title>
-    <!-- Development version -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="../../css/dashboard.css">
     <link rel="stylesheet" href="../../css/responsive.css">
@@ -75,16 +72,54 @@
                     <i data-lucide="search" class="search-icon"></i>
                 </div>
                 <div class="header-actions">
-                    <button class="header-btn settings-btn" title="Settings">
-                        <i data-lucide="settings" class="header-icon"></i>
-                    </button>
-                    <button class="header-btn profile-btn" title="Profile">
-                        <img src="../../assets/me.jpg" alt="Profile" class="profile-photo">
-                    </button>
+                    <div class="header-action">
+                        <button class="header-btn settings-btn" type="button" title="Settings" aria-label="Open settings menu" aria-expanded="false" aria-controls="settingsMenu">
+                            <i data-lucide="settings" class="header-icon"></i>
+                        </button>
+                        <div class="header-action-menu" id="settingsMenu" role="menu">
+                            <button class="header-menu-item" type="button" role="menuitem">
+                                <i data-lucide="sliders-horizontal" class="header-menu-icon"></i>
+                                <span>Preferences</span>
+                            </button>
+                            <button class="header-menu-item" type="button" role="menuitem">
+                                <i data-lucide="bell" class="header-menu-icon"></i>
+                                <span>Notifications</span>
+                            </button>
+                            <button class="header-menu-item" type="button" role="menuitem">
+                                <i data-lucide="shield" class="header-menu-icon"></i>
+                                <span>Privacy</span>
+                            </button>
+                            <button class="header-menu-item" type="button" role="menuitem">
+                                <i data-lucide="circle-help" class="header-menu-icon"></i>
+                                <span>Help Center</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="header-action">
+                        <button class="header-btn profile-btn" type="button" title="Profile" aria-label="Open profile menu" aria-expanded="false" aria-controls="profileMenu">
+                            <img src="../../assets/me.jpg" alt="Profile" class="profile-photo">
+                        </button>
+                        <div class="header-action-menu profile-menu" id="profileMenu" role="menu">
+                            <button class="header-menu-item" type="button" role="menuitem">
+                                <i data-lucide="user" class="header-menu-icon"></i>
+                                <span>View Profile</span>
+                            </button>
+                            <button class="header-menu-item" type="button" role="menuitem">
+                                <i data-lucide="user-pen" class="header-menu-icon"></i>
+                                <span>Edit Profile</span>
+                            </button>
+                            <button class="header-menu-item" type="button" role="menuitem">
+                                <i data-lucide="lock-keyhole" class="header-menu-icon"></i>
+                                <span>Change Password</span>
+                            </button>
+                            <button class="header-menu-item danger" type="button" role="menuitem">
+                                <i data-lucide="log-out" class="header-menu-icon"></i>
+                                <span>Sign Out</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </header>
-            
-        </section>
         
         <!-- Filter and Search Section -->
         <section class="filter-section">
@@ -103,106 +138,91 @@
         <section class="stats-section">
                 <div class="stat-card">
                     <p class="stat-label">TOTAL COURSES</p>
-                    <p class="stat-number">03</p>
+                    <p class="stat-number" id="studentCount">03</p>
+                    <div class="stat-chart">
+                        <canvas id="semesterChart"></canvas>
+                    </div>
                 </div>
                 <div class="stat-card">
                     <p class="stat-label">ONGOING NOW</p>
-                    <p class="stat-number">02</p>
+                    <p class="stat-number" id="ongoingCount">02</p>
+                    <div class="stat-chart">
+                        <canvas id="ongoingChart"></canvas>
+                    </div>
                 </div>
                 <div class="stat-card">
                     <p class="stat-label">COMPLETED</p>
-                    <p class="stat-number">00</p>
+                    <p class="stat-number" id="completedCount">00</p>
+                    <div class="stat-chart">
+                        <canvas id="completedChart"></canvas>
+                    </div>
                 </div>
             </section>
 
 
-            <!-- Courses List -->
+            <!-- Courses Table -->
             <section class="courses-section">
-                <div class="course-card">
-                    <div class="course-header">
-                        <h3 class="course-tit   le">Advanced Aircraft Systems</h3>
-                        <span class="course-badge upcoming">Upcoming</span>
-                    </div>
-                    <div class="course-details">
-                        <div class="detail-item">
-                            <span class="detail-label">Start Date:</span>
-                            <span class="detail-value">Jun 5, 2026</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Duration:</span>
-                            <span class="detail-value">4 weeks</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Participants:</span>
-                            <span class="detail-value">45 students</span>
-                        </div>
-                    </div>
-                    <div class="course-footer">
-                        <span class="course-position">1 of 3</span>
-                        <div class="course-actions">
-                            <button class="action-btn edit">Edit</button>
-                            <button class="action-btn delete">Delete</button>
-                            <button class="action-btn report">Report</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="course-card">
-                    <div class="course-header">
-                        <h3 class="course-title">Instrument Flight Rules</h3>
-                        <span class="course-badge ongoing">Ongoing</span>
-                    </div>
-                    <div class="course-details">
-                        <div class="detail-item">
-                            <span class="detail-label">Start Date:</span>
-                            <span class="detail-value">Apr 1, 2026</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Duration:</span>
-                            <span class="detail-value">6 weeks</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Participants:</span>
-                            <span class="detail-value">32 students</span>
-                        </div>
-                    </div>
-                    <div class="course-footer">
-                        <span class="course-position">2 of 3</span>
-                        <div class="course-actions">
-                            <button class="action-btn edit">Edit</button>
-                            <button class="action-btn delete">Delete</button>
-                            <button class="action-btn report">Report</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="course-card">
-                    <div class="course-header">
-                        <h3 class="course-title">Aviation Meteorology</h3>
-                        <span class="course-badge completed">Completed</span>
-                    </div>
-                    <div class="course-details">
-                        <div class="detail-item">
-                            <span class="detail-label">Start Date:</span>
-                            <span class="detail-value">Feb 10, 2026</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Duration:</span>
-                            <span class="detail-value">4 weeks</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Participants:</span>
-                            <span class="detail-value">28 students</span>
-                        </div>
-                    </div>
-                    <div class="course-footer">
-                        <span class="course-position">3 of 3</span>
-                        <div class="course-actions">
-                            <button class="action-btn edit">Edit</button>
-                            <button class="action-btn delete">Delete</button>
-                            <button class="action-btn report">Report</button>
-                        </div>
-                    </div>
+                <div class="courses-table-wrap">
+                    <table class="courses-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Course</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Start Date</th>
+                                <th scope="col">Duration</th>
+                                <th scope="col">Participants</th>
+                                <th scope="col">Position</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="course-row">
+                                <td class="course-title">Advanced Aircraft Systems</td>
+                                <td><span class="course-badge upcoming">Upcoming</span></td>
+                                <td>Jun 5, 2026</td>
+                                <td>4 weeks</td>
+                                <td>45 students</td>
+                                <td>1 of 3</td>
+                                <td>
+                                    <div class="course-actions">
+                                        <button class="action-btn edit">Edit</button>
+                                        <button class="action-btn delete">Delete</button>
+                                        <button class="action-btn report">Report</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="course-row">
+                                <td class="course-title">Instrument Flight Rules</td>
+                                <td><span class="course-badge ongoing">Ongoing</span></td>
+                                <td>Apr 1, 2026</td>
+                                <td>6 weeks</td>
+                                <td>32 students</td>
+                                <td>2 of 3</td>
+                                <td>
+                                    <div class="course-actions">
+                                        <button class="action-btn edit">Edit</button>
+                                        <button class="action-btn delete">Delete</button>
+                                        <button class="action-btn report">Report</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="course-row">
+                                <td class="course-title">Aviation Meteorology</td>
+                                <td><span class="course-badge completed">Completed</span></td>
+                                <td>Feb 10, 2026</td>
+                                <td>4 weeks</td>
+                                <td>28 students</td>
+                                <td>3 of 3</td>
+                                <td>
+                                    <div class="course-actions">
+                                        <button class="action-btn edit">Edit</button>
+                                        <button class="action-btn delete">Delete</button>
+                                        <button class="action-btn report">Report</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </section>
         </main>
@@ -251,14 +271,19 @@
         </div>
     </div>
 
-        </main>
-
-    </div>
-
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <script>
-        lucide.createIcons();
+        function initializeLucideIcons() {
+            if (window.lucide) {
+                window.lucide.createIcons();
+            }
+        }
+
+        initializeLucideIcons();
+        window.addEventListener('load', initializeLucideIcons);
     </script>
-     <script src="../../js/courseManager.js"></script>
+    <script src="../../js/courseManager.js"></script>
     <script src="../../js/filters.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../../js/dashboard.js"></script>
 </body>    
